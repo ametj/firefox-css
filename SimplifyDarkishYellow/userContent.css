@@ -23,10 +23,6 @@ body[lwt-sidebar-brighttext] {
   body.activity-stream {
     background-color: rgba(var(--dark-color), 1) !important;
   }
-
-  body.activity-stream button.personalize-button {
-    display: none;
-  }
 }
 
 /*================== SEARCH BAR ==================*/
