@@ -67,13 +67,21 @@ tab[selected="true"] .tab-background {
   border-left: 0 !important;
   opacity: 0 !important;
 }
-
-.tab-close-button {
-  transition: all 0.3s ease !important;
-  border-radius: 4px !important;
+ 
+/* Show Tab Close buttons only when hovered */
+.tabbrowser-tab:not([pinned]) .tab-close-button {
+  opacity: 0 !important;
+  transition: all 0.2s ease-in 0.1s !important;
 }
-.tab-close-button:hover {
-  fill-opacity: 0.2 !important;
+
+.tabbrowser-tab:not([pinned]):hover .tab-close-button {
+  opacity: 0.7 !important;
+  transition: all 0.2s ease-in !important;
+}
+
+.tabbrowser-tab:not([pinned]):hover .tab-close-button:hover {
+  background-color: unset !important;
+  opacity: 1 !important;
 }
 
 .tabbrowser-tab > .tab-stack > .tab-background {
