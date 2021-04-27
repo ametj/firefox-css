@@ -74,7 +74,8 @@ tab[selected="true"] .tab-background {
   transition: all 0.2s ease-in 0.1s !important;
 }
 
-.tabbrowser-tab:not([pinned]):hover .tab-close-button {
+.tabbrowser-tab:not([pinned]):hover .tab-close-button,
+.tabbrowser-tab[selected="true"]:not([pinned]) .tab-close-button {
   opacity: 0.7 !important;
   transition: all 0.2s ease-in !important;
 }
