@@ -1,0 +1,249 @@
+:root {
+  --active-color: #bebebe;
+  --foreground-color: #8c8c8c;
+  --background-color: #242424;
+  --background-hover-color: #363636;
+  --transition: all 0.3s ease;
+}
+
+/** Tabs **/
+#navigator-toolbox {
+  background: var(--background-color) !important;
+  border: 0 !important;
+}
+#tabbrowser-arrowscrollbox {
+  color: var(--foreground-color) !important;
+  margin-bottom: -2px !important;
+}
+hbox.titlebar-spacer {
+  display: -moz-box !important;
+  width: 2px !important;
+}
+.tabbrowser-tab[fadein]:not([pinned]) {
+  max-width: 200px !important;
+  min-width: 200px !important;
+}
+.tabbrowser-tab[usercontextid] > .tab-stack > .tab-background > .tab-context-line {
+  border-radius: 0;
+  margin-top: 0px !important;
+  height: 1px !important;
+}
+
+/* Reduce spacing between pinned and regular tabs */
+#tabbrowser-tabs[haspinnedtabs]:not([positionpinnedtabs])
+  > #tabbrowser-arrowscrollbox
+  > .tabbrowser-tab[first-visible-unpinned-tab] {
+  margin-inline-start: initial !important;
+}
+
+tab[selected="true"] .tab-content {
+  color: var(--active-color) !important;
+}
+tab[selected="true"] .tab-background {
+  background: var(--background-hover-color) !important;
+}
+.tab-content {
+  padding: 0 6px !important;
+}
+
+/* Show Tab Close buttons only when hovered */
+.tabbrowser-tab:not([pinned]) .tab-close-button {
+  opacity: 0 !important;
+}
+
+.tabbrowser-tab:not([pinned]):hover .tab-close-button,
+.tabbrowser-tab[selected="true"]:not([pinned]) .tab-close-button {
+  opacity: 0.6 !important;
+}
+
+.tabbrowser-tab:not([pinned]):hover .tab-close-button:hover {
+  background-color: unset !important;
+  opacity: 1 !important;
+}
+
+/** Window buttons **/
+.titlebar-buttonbox,
+hbox#window-controls {
+  position: relative !important;
+  margin-right: 0px !important;
+  margin-top: -10px !important;
+  padding-top: 10px !important;
+}
+.titlebar-button,
+hbox#window-controls > toolbarbutton {
+  transition: var(--transition) !important;
+  padding: 8px 10px !important;
+  background: var(--background-color) !important;
+  -moz-context-properties: none !important;
+}
+.titlebar-button > .toolbarbutton-icon,
+hbox#window-controls > toolbarbutton > .toolbarbutton-icon {
+  opacity: 0.7 !important;
+  transition: var(--transition) !important;
+  border-radius: 10px !important;
+}
+
+.titlebar-button.titlebar-min > .toolbarbutton-icon,
+toolbarbutton#minimize-button > .toolbarbutton-icon {
+  background: #28dc32 !important;
+}
+.titlebar-button.titlebar-max > .toolbarbutton-icon,
+.titlebar-button.titlebar-restore > .toolbarbutton-icon,
+toolbarbutton#restore-button > .toolbarbutton-icon {
+  background: #fabe14 !important;
+}
+.titlebar-button.titlebar-close > .toolbarbutton-icon,
+toolbarbutton#close-button > .toolbarbutton-icon {
+  background: #f92c2c !important;
+}
+.titlebar-button:hover > .toolbarbutton-icon,
+hbox#window-controls > toolbarbutton:hover > .toolbarbutton-icon {
+  opacity: unset !important;
+}
+
+/** Navigation bar **/
+#nav-bar {
+  background: var(--background-color) !important;
+  padding-left: 2px !important;
+}
+
+.toolbarbutton-1 {
+  transition: var(--transition) !important;
+  padding: 0 2px !important;
+}
+
+#tabbrowser-arrowscrollbox::part(scrollbutton-up),
+#tabbrowser-arrowscrollbox::part(scrollbutton-down),
+.toolbarbutton-1,
+.toolbarbutton-1[disabled="true"],
+.toolbarbutton-1[checked],
+.toolbarbutton-1 > .toolbarbutton-animatable-box {
+  fill: var(--foreground-color) !important;
+}
+.toolbarbutton-1[open],
+.toolbarbutton-1:active {
+  fill: var(--active-color) !important;
+}
+
+.toolbarbutton-1:not([disabled="true"]):is([open], [checked], :hover, :hover:active) > .toolbarbutton-icon,
+.toolbarbutton-1:not([disabled="true"]):is([open], [checked], :hover, :hover:active) > .toolbarbutton-text,
+.toolbarbutton-1:not([disabled="true"]):is([open], [checked], :hover, :hover:active) > .toolbarbutton-badge-stack {
+  background-color: var(--background-hover-color) !important;
+}
+
+/** Url bar **/
+#urlbar {
+  color: var(--active-color) !important;
+}
+#urlbar > #urlbar-background {
+  background-color: var(--background-hover-color) !important;
+  box-shadow: none !important;
+  border: 0 !important;
+}
+#urlbar-container {
+  margin-inline: 2px !important;
+}
+#urlbar-input-container {
+  border: 1px solid var(--background-hover-color) !important;
+  padding-left: 4px !important;
+}
+#navigator-toolbox {
+  border: 0 !important;
+}
+
+/* Popup */
+#urlbar[breakout][breakout-extend] {
+  top: calc((var(--urlbar-toolbar-height) - var(--urlbar-height)) / 2) !important;
+  left: 0 !important;
+  width: 100% !important;
+}
+#urlbar[breakout][breakout-extend] > #urlbar-input-container {
+  height: var(--urlbar-height) !important;
+  padding-block: 0 !important;
+  padding-inline: 4px 1px !important;
+}
+#urlbar[breakout][breakout-extend] > #urlbar-background {
+  animation-name: none !important;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05) !important;
+}
+
+.urlbarView-row:not([type="tip"], [type="dynamic"])[selected] > .urlbarView-row-inner {
+  background-color: var(--background-color) !important;
+}
+
+/** Bookmark toolbar **/
+#PersonalToolbar {
+  background-color: var(--background-color) !important;
+  color: var(--foreground-color) !important;
+  padding-bottom: 2px !important;
+}
+toolbarbutton.bookmark-item .toolbarbutton-icon {
+  fill: var(--foreground-color) !important;
+}
+toolbarbutton.bookmark-item {
+  background-color: transparent !important;
+}
+toolbarbutton.bookmark-item:is(:hover, [open="true"]) {
+  color: var(--active-color) !important;
+}
+toolbarbutton.bookmark-item:is(:hover, [open="true"]) .toolbarbutton-icon {
+  fill: var(--active-color) !important;
+}
+
+/** Transition **/
+.tab-close-button,
+tab:not([selected="true"]) .tab-background,
+toolbarbutton.toolbarbutton-1 > .toolbarbutton-icon toolbarbutton.bookmark-item,
+toolbarbutton.bookmark-item .toolbarbutton-icon {
+  transition: var(--transition) !important;
+}
+
+/** Menu **/
+menu[_moz-menuactive="true"]:not([disabled="true"]),
+menuitem:hover:not([disabled="true"]) {
+  color: var(--active-color) !important;
+}
+
+menupopup {
+  --menu-background-color: var(--background-color) !important;
+  --menuitem-hover-background-color: var(--background-hover-color) !important;
+  --menu-color: var(--foreground-color) !important;
+  /* TODO: waiting for https://www.w3.org/TR/css-color-5/ */
+  --menuitem-disabled-hover-background-color: #36363666 !important;
+  --menu-disabled-color: #8c8c8c66 !important;
+  --menu-border-color: var(--background-hover-color) !important;
+  --menu-icon-opacity: 0.7 !important;
+}
+
+panel {
+  --arrowpanel-background: var(--background-color) !important;
+  --panelview-toolbarbutton-hover-bgcolor: var(--background-hover-color) !important;
+  --toolbar-color: var(--foreground-color) !important;
+  --panel-shortcut-color: var(--foreground-color) !important;
+  --panel-shortcut-color: var(--foreground-color) !important;
+  --panelview-toolbarbutton-active-color: var(--active-color) !important;
+}
+
+#appMenu-popup {
+  margin-top: 0px !important;
+}
+
+panelview .appMenu-libraryView {
+  background-color: var(--background-color) !important;
+}
+.toolbarbutton-text {
+  color: var(--foreground-color) !important;
+}
+toolbarbutton.subviewbutton:not([disabled]):is([open], :hover:active) {
+  background-color: var(--background-hover-color) !important;
+}
+panelview .toolbarbutton-1:not([disabled], [open], :active):is(:hover),
+menu.subviewbutton:not([disabled], :active)[_moz-menuactive],
+menuitem.subviewbutton:not([disabled], :active)[_moz-menuactive],
+.widget-overflow-list .toolbarbutton-1:not([disabled], [open], :active):is(:hover),
+.toolbaritem-combined-buttons:is(:not([cui-areatype="toolbar"]), [overflowedItem="true"])
+  > toolbarbutton:not([disabled], [open], :active):is(:hover),
+toolbarbutton.subviewbutton:not([disabled]):is([open], :hover:active) .toolbarbutton-text,
+.subviewbutton[shortcut]:hover:active::after {
+  color: var(--active-color) !important;
+}

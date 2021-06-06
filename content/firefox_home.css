@@ -1,4 +1,9 @@
 @-moz-document url("about:newtab"), url("about:home"), url("about:blank") {
+  .activity-stream .search-handoff-button {
+    border: none !important;
+    box-shadow: none !important;
+  }
+
   .activity-stream button.personalize-button {
     display: none;
   }
