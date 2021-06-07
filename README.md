@@ -1,7 +1,7 @@
 # firefox-css
 My personal firefox customization.
 
-Uses customized [Simplify Darkish Yellow theme](https://github.com/CristianDragos/FirefoxThemes) (button style changes), removes megabar, shows bookmar bar only when urlbar is focused and uses customized scrollbars.
+Uses dark compact theme, inspired by [Simplify Darkish Yellow theme](https://github.com/CristianDragos/FirefoxThemes).
 
 # Installation
 
@@ -12,3 +12,8 @@ Uses customized [Simplify Darkish Yellow theme](https://github.com/CristianDrago
 3. Clone this repo's content into the `chrome/` folder previously mentioned.
 
 4. Done.
+
+# Development
+Check [how to setup live debugging](https://old.reddit.com/r/FirefoxCSS/comments/73dvty/tutorial_how_to_create_and_livedebug_userchromecss/).
+
+Browser toolbox is not opening? Delete `chrome_debugger_profile` in the Firefox profile folder. Check installation section for locating the folder.
