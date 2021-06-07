@@ -1,18 +1,66 @@
+/* 
+Regex to check missing !important: 
+:.*[^!important];
+*/
 :root {
   --active-color: #bebebe;
+  --active-brighter-color: #dedede;
   --foreground-color: #8c8c8c;
   --background-color: #242424;
   --background-hover-color: #363636;
   --transition: all 0.3s ease;
+
+  --lwt-accent-color: var(--background-color) !important;
+  --toolbar-bgcolor: var(--background-color) !important;
+
+  --lwt-text-color: var(--foreground-color) !important;
+  --lwt-tab-text: var(--foreground-color) !important;
+
+  --lwt-selected-tab-background-color: var(--background-hover-color) !important;
+
+  --lwt-toolbar-field-color: var(--active-color) !important;
+  --lwt-toolbar-field-background-color: var(--background-hover-color) !important;
+  --lwt-toolbar-field-focus: var(--background-hover-color) !important;
+  --lwt-toolbar-field-focus-color: var(--active-color) !important;
+  --autocomplete-popup-highlight-background: var(--background-color) !important;
+  --autocomplete-popup-highlight-color: var(--active-brighter-color) !important;
+
+  --toolbarbutton-hover-background: var(--background-hover-color) !important;
+  --toolbarbutton-active-background: var(--background-hover-color) !important;
+  --toolbarbutton-icon-fill: var(--foreground-color) !important;
+
+  /* panel */
+  --arrowpanel-background: var(--background-color) !important;
+  --arrowpanel-border-color: var(--background-hover-color) !important;
+  --panelview-toolbarbutton-hover-bgcolor: var(--background-hover-color) !important;
+  --toolbar-color: var(--foreground-color) !important;
+  --panel-shortcut-color: var(--foreground-color) !important;
+  --panel-shortcut-color: var(--foreground-color) !important;
+  --panelview-toolbarbutton-active-color: var(--active-brighter-color) !important;
+  --panelview-toolbarbutton-active-bgcolor: var(--background-hover-color) !important;
+
+  scrollbar-color: var(--active-color) #303030;
+}
+* {
+  scrollbar-width: thin;
 }
 
-/** Tabs **/
+menupopup {
+  --menu-background-color: var(--background-color) !important;
+  --menuitem-hover-background-color: var(--background-hover-color) !important;
+  --menu-color: var(--foreground-color) !important;
+  /* TODO: waiting for https://www.w3.org/TR/css-color-5/ */
+  --menuitem-disabled-hover-background-color: #36363666 !important;
+  --menu-disabled-color: #8c8c8c66 !important;
+  --menu-border-color: var(--background-hover-color) !important;
+  --menu-icon-opacity: 0.7 !important;
+}
+
+/* #region Tabs */
 #navigator-toolbox {
-  background: var(--background-color) !important;
   border: 0 !important;
 }
 #tabbrowser-arrowscrollbox {
-  color: var(--foreground-color) !important;
   margin-bottom: -2px !important;
 }
 hbox.titlebar-spacer {
@@ -36,12 +84,6 @@ hbox.titlebar-spacer {
   margin-inline-start: initial !important;
 }
 
-tab[selected="true"] .tab-content {
-  color: var(--active-color) !important;
-}
-tab[selected="true"] .tab-background {
-  background: var(--background-hover-color) !important;
-}
 .tab-content {
   padding: 0 6px !important;
 }
@@ -50,18 +92,17 @@ tab[selected="true"] .tab-background {
 .tabbrowser-tab:not([pinned]) .tab-close-button {
   opacity: 0 !important;
 }
-
 .tabbrowser-tab:not([pinned]):hover .tab-close-button,
 .tabbrowser-tab[selected="true"]:not([pinned]) .tab-close-button {
   opacity: 0.6 !important;
 }
-
 .tabbrowser-tab:not([pinned]):hover .tab-close-button:hover {
   background-color: unset !important;
   opacity: 1 !important;
 }
+/* #endregion Tabs */
 
-/** Window buttons **/
+/* #region Window buttons */
 .titlebar-buttonbox,
 hbox#window-controls {
   position: relative !important;
@@ -82,7 +123,6 @@ hbox#window-controls > toolbarbutton > .toolbarbutton-icon {
   transition: var(--transition) !important;
   border-radius: 10px !important;
 }
-
 .titlebar-button.titlebar-min > .toolbarbutton-icon,
 toolbarbutton#minimize-button > .toolbarbutton-icon {
   background: #28dc32 !important;
@@ -100,43 +140,24 @@ toolbarbutton#close-button > .toolbarbutton-icon {
 hbox#window-controls > toolbarbutton:hover > .toolbarbutton-icon {
   opacity: unset !important;
 }
+/* #endregion Window buttons */
 
-/** Navigation bar **/
+/* #region NavBar **/
 #nav-bar {
-  background: var(--background-color) !important;
   padding-left: 2px !important;
 }
 
 .toolbarbutton-1 {
-  transition: var(--transition) !important;
   padding: 0 2px !important;
-}
-
-#tabbrowser-arrowscrollbox::part(scrollbutton-up),
-#tabbrowser-arrowscrollbox::part(scrollbutton-down),
-.toolbarbutton-1,
-.toolbarbutton-1[disabled="true"],
-.toolbarbutton-1[checked],
-.toolbarbutton-1 > .toolbarbutton-animatable-box {
-  fill: var(--foreground-color) !important;
 }
 .toolbarbutton-1[open],
 .toolbarbutton-1:active {
   fill: var(--active-color) !important;
 }
+/* #endregion NavBar*/
 
-.toolbarbutton-1:not([disabled="true"]):is([open], [checked], :hover, :hover:active) > .toolbarbutton-icon,
-.toolbarbutton-1:not([disabled="true"]):is([open], [checked], :hover, :hover:active) > .toolbarbutton-text,
-.toolbarbutton-1:not([disabled="true"]):is([open], [checked], :hover, :hover:active) > .toolbarbutton-badge-stack {
-  background-color: var(--background-hover-color) !important;
-}
-
-/** Url bar **/
-#urlbar {
-  color: var(--active-color) !important;
-}
+/* #region Urlbar */
 #urlbar > #urlbar-background {
-  background-color: var(--background-hover-color) !important;
   box-shadow: none !important;
   border: 0 !important;
 }
@@ -149,6 +170,14 @@ hbox#window-controls > toolbarbutton:hover > .toolbarbutton-icon {
 }
 #navigator-toolbox {
   border: 0 !important;
+}
+/* Make the urlbar icon :hover & :hover:active same*/
+:not(.urlbar-icon-wrapper) > .urlbar-icon:not([disabled])[open],
+:not(.urlbar-icon-wrapper) > .urlbar-icon:not([disabled]):hover:active,
+.urlbar-icon-wrapper:not([disabled])[open],
+.urlbar-icon-wrapper:not([disabled]):hover:active {
+  color: var(--active-brighter-color) !important;
+  background-color: hsla(0, 0%, 70%, 0.2) !important;
 }
 
 /* Popup */
@@ -166,19 +195,11 @@ hbox#window-controls > toolbarbutton:hover > .toolbarbutton-icon {
   animation-name: none !important;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05) !important;
 }
+/* #endregion Urlbar */
 
-.urlbarView-row:not([type="tip"], [type="dynamic"])[selected] > .urlbarView-row-inner {
-  background-color: var(--background-color) !important;
-}
-
-/** Bookmark toolbar **/
+/* #region Bookmark toolbar */
 #PersonalToolbar {
-  background-color: var(--background-color) !important;
-  color: var(--foreground-color) !important;
   padding-bottom: 2px !important;
-}
-toolbarbutton.bookmark-item .toolbarbutton-icon {
-  fill: var(--foreground-color) !important;
 }
 toolbarbutton.bookmark-item {
   background-color: transparent !important;
@@ -189,61 +210,36 @@ toolbarbutton.bookmark-item:is(:hover, [open="true"]) {
 toolbarbutton.bookmark-item:is(:hover, [open="true"]) .toolbarbutton-icon {
   fill: var(--active-color) !important;
 }
+/* #endregion Bookmark toolbar */
 
-/** Transition **/
-.tab-close-button,
-tab:not([selected="true"]) .tab-background,
-toolbarbutton.toolbarbutton-1 > .toolbarbutton-icon toolbarbutton.bookmark-item,
-toolbarbutton.bookmark-item .toolbarbutton-icon {
-  transition: var(--transition) !important;
-}
-
-/** Menu **/
+/* #region Menu */
 menu[_moz-menuactive="true"]:not([disabled="true"]),
 menuitem:hover:not([disabled="true"]) {
   color: var(--active-color) !important;
 }
-
-menupopup {
-  --menu-background-color: var(--background-color) !important;
-  --menuitem-hover-background-color: var(--background-hover-color) !important;
-  --menu-color: var(--foreground-color) !important;
-  /* TODO: waiting for https://www.w3.org/TR/css-color-5/ */
-  --menuitem-disabled-hover-background-color: #36363666 !important;
-  --menu-disabled-color: #8c8c8c66 !important;
-  --menu-border-color: var(--background-hover-color) !important;
-  --menu-icon-opacity: 0.7 !important;
-}
-
-panel {
-  --arrowpanel-background: var(--background-color) !important;
-  --panelview-toolbarbutton-hover-bgcolor: var(--background-hover-color) !important;
-  --toolbar-color: var(--foreground-color) !important;
-  --panel-shortcut-color: var(--foreground-color) !important;
-  --panel-shortcut-color: var(--foreground-color) !important;
-  --panelview-toolbarbutton-active-color: var(--active-color) !important;
-}
-
 #appMenu-popup {
   margin-top: 0px !important;
 }
 
-panelview .appMenu-libraryView {
-  background-color: var(--background-color) !important;
+panel .toolbarbutton-text,
+panel toolbarbutton:not([disabled]):is([open], :hover:active)::after {
+  color: var(--active-color) !important;
 }
-.toolbarbutton-text {
-  color: var(--foreground-color) !important;
+
+panel toolbarbutton:not([disabled]):is([open], :hover:active) .toolbarbutton-text,
+#appMenu-header-description {
+  color: var(--active-brighter-color) !important;
 }
-toolbarbutton.subviewbutton:not([disabled]):is([open], :hover:active) {
+panel toolbarbutton.bookmark-item:not([disabled]):hover {
   background-color: var(--background-hover-color) !important;
 }
-panelview .toolbarbutton-1:not([disabled], [open], :active):is(:hover),
-menu.subviewbutton:not([disabled], :active)[_moz-menuactive],
-menuitem.subviewbutton:not([disabled], :active)[_moz-menuactive],
-.widget-overflow-list .toolbarbutton-1:not([disabled], [open], :active):is(:hover),
-.toolbaritem-combined-buttons:is(:not([cui-areatype="toolbar"]), [overflowedItem="true"])
-  > toolbarbutton:not([disabled], [open], :active):is(:hover),
-toolbarbutton.subviewbutton:not([disabled]):is([open], :hover:active) .toolbarbutton-text,
-.subviewbutton[shortcut]:hover:active::after {
-  color: var(--active-color) !important;
+/* #endregion Menu */
+
+/* Transition */
+.tab-close-button,
+tab:not([selected="true"]) .tab-background,
+.toolbarbutton-1 > .toolbarbutton-icon,
+toolbarbutton.bookmark-item,
+toolbarbutton.bookmark-item .toolbarbutton-icon {
+  transition: var(--transition) !important;
 }
